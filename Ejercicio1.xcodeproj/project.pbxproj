@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		ADD97B581A5E94A8006376BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD97B571A5E94A8006376BE /* main.m */; };
+		ADD97B601A5E94ED006376BE /* VOSStarWarsCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD97B5F1A5E94ED006376BE /* VOSStarWarsCharacter.m */; };
+		ADD97B671A5EA05A006376BE /* VOSLightSaber.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD97B661A5EA05A006376BE /* VOSLightSaber.m */; };
+		ADD97B6A1A5F32BB006376BE /* VOSJedi.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD97B691A5F32BB006376BE /* VOSJedi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		ADD97B541A5E94A8006376BE /* Ejercicio1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Ejercicio1; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD97B571A5E94A8006376BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ADD97B5E1A5E94ED006376BE /* VOSStarWarsCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSStarWarsCharacter.h; sourceTree = "<group>"; };
+		ADD97B5F1A5E94ED006376BE /* VOSStarWarsCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSStarWarsCharacter.m; sourceTree = "<group>"; };
+		ADD97B651A5EA05A006376BE /* VOSLightSaber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSLightSaber.h; sourceTree = "<group>"; };
+		ADD97B661A5EA05A006376BE /* VOSLightSaber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSLightSaber.m; sourceTree = "<group>"; };
+		ADD97B681A5F32BB006376BE /* VOSJedi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSJedi.h; sourceTree = "<group>"; };
+		ADD97B691A5F32BB006376BE /* VOSJedi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSJedi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +67,22 @@
 			isa = PBXGroup;
 			children = (
 				ADD97B571A5E94A8006376BE /* main.m */,
+				ADD97B611A5E950D006376BE /* Models */,
 			);
 			path = Ejercicio1;
+			sourceTree = "<group>";
+		};
+		ADD97B611A5E950D006376BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADD97B5E1A5E94ED006376BE /* VOSStarWarsCharacter.h */,
+				ADD97B5F1A5E94ED006376BE /* VOSStarWarsCharacter.m */,
+				ADD97B651A5EA05A006376BE /* VOSLightSaber.h */,
+				ADD97B661A5EA05A006376BE /* VOSLightSaber.m */,
+				ADD97B681A5F32BB006376BE /* VOSJedi.h */,
+				ADD97B691A5F32BB006376BE /* VOSJedi.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD97B6A1A5F32BB006376BE /* VOSJedi.m in Sources */,
 				ADD97B581A5E94A8006376BE /* main.m in Sources */,
+				ADD97B601A5E94ED006376BE /* VOSStarWarsCharacter.m in Sources */,
+				ADD97B671A5EA05A006376BE /* VOSLightSaber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
