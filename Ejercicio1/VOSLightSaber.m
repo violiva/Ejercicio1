@@ -123,22 +123,11 @@
 }
 
 -(BOOL) isEqualToColor: (VOSLightSaber *) other{
-    float redOrigin = self.colour.redComponent;
-    float redCompare = other.colour.redComponent;
-    float greenOrigin = self.colour.greenComponent;
-    float greenCompare = other.colour.greenComponent;
-    float blueOrigin = self.colour.blueComponent;
-    float blueCompare = other.colour.blueComponent;
-    float alphaOrigin = self.colour.alphaComponent;
-    float alphaCompare = other.colour.alphaComponent;
-    
-    if ( (redOrigin == redCompare ) &&
-         (greenOrigin == greenCompare ) &&
-         (blueOrigin == blueCompare ) &&
-         (alphaOrigin == alphaCompare ) ){
-       return YES;
-    }
-    else{
+    if ( self.colour.redComponent == other.colour.redComponent &&
+         self.colour.greenComponent == other.colour.greenComponent &&
+        self.colour.blueComponent == other.colour.blueComponent ){
+        return YES;
+    } else{
         return NO;
     }
     
