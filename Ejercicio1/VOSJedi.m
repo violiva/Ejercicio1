@@ -11,10 +11,12 @@
 
 @implementation VOSJedi
 
+#pragma mark - Class Methods
 +(id) unsheathe{
     return [NSString stringWithFormat:@"█||||||(•)█Ξ█████████████████████"];
 }
 
+#pragma mark - Init
 -(id) initWithName: (NSString *) aName
      midichlorians: (int) anMidichlorians
         lightSaber: (VOSLightSaber *) alightsaber
@@ -46,9 +48,57 @@
     
 }
 
+#pragma mark - Override
 -(NSString *) description{
     
     return [NSString stringWithFormat: @"< %@ %@ es un Jedi con %d midiclorianos, padawan de %@ y suele utilizar un  %@>", [self class], [self name], [self midichlorians], [self padawanOf], self.lightSaber ];
+}
+
+-(BOOL) isEqual:(id) object{
+    // si es la misma instancia por narices son iguales
+    if ( self == object){
+        return YES;
+    }
+    else{
+        if ([ object isKindOfClass:[self class]]){
+            return [self isEqualToJedi:object];
+        }
+        else{
+            return NO;
+        }
+    }
+}
+
+-(BOOL) isEqualToJedi: (VOSJedi *) other{
+//    if ( [self.name isEqualToString:other.name] &&
+//        self.midichlorians == other.midichlorians &&
+//        [self.lightSaber isEqualTo:other.lightSaber] &&
+//        [self.padawanOf isEqualToMaster:other.padawanOf] ){
+//        return YES;
+//    }
+//    else{
+//        return NO;
+//    }
+    
+    return ( ( [self.name isEqualToString:other.name] &&
+                self.midichlorians == other.midichlorians &&
+               [self.lightSaber isEqualTo:other.lightSaber] &&
+               [self.padawanOf isEqualToMaster:other.padawanOf] ) ? : 0 );
+    
+}
+
+-(BOOL) isEqualToMaster:(id) object{
+    if ( self == object){
+        return YES;
+    }
+    else{
+        if ([ object isKindOfClass:[self class]]){
+            return [self.padawanOf isEqualToJedi:object];
+        }
+        else{
+            return NO;
+        }
+    }
 }
 
 @end

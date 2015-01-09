@@ -15,10 +15,11 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         VOSStarWarsCharacter * Jabba = [VOSStarWarsCharacter starWarsCharacterWithName:@"Jabba the Hutt"];
-        VOSStarWarsCharacter * Han = [VOSStarWarsCharacter starWarsCharacterWithName:@"Hans Solo"];
+        VOSStarWarsCharacter * Han = [VOSStarWarsCharacter starWarsCharacterWithName:@"Han Solo"];
         
         NSLog( @"%@", Jabba );
         NSLog( @"%@", Han );
+        NSLog( @"[hanSolo isEqual: Jabba] = %@", ([Han isEqual: Jabba] ? @"YES" : @"NO" ));
         
         if ( [Jabba isEqualToCharacter:Han] ){
             NSLog( @"Son el mismo personaje" );
@@ -51,9 +52,28 @@ int main(int argc, const char * argv[]) {
             NSLog( @"Son distintos sables de luz" );
         }
         
-        VOSJedi * QuiGon = [[VOSJedi alloc] initWithName:@"Qui-Gon Jinn"];
+        VOSJedi * quiGon = [[VOSJedi alloc] initWithName:@"Qui-Gon Jinn"];
 
-        NSLog(@"%@", QuiGon);
+        NSLog(@"%@", quiGon);
+        
+        VOSJedi * obiWan = [[VOSJedi alloc] initWithName:@"Obi-Wan Kenobi"
+                                           midichlorians:50000
+                                              lightSaber:[VOSLightSaber lightSaberWithPurpleLight]
+                                               padawanOf:quiGon];
+        VOSJedi * anakin = [[VOSJedi alloc] initWithName:@"Anakin Skywalker"
+                                           midichlorians:10000
+                                              lightSaber:[VOSLightSaber lightSaberWithRedLight]
+                                               padawanOf:obiWan];
+        VOSJedi * yoda = [[VOSJedi alloc] initJediMasterWithName:@"Yoda"];
+        VOSJedi * luke = [[VOSJedi alloc] initWithName:@"Luke Skywalker"
+                                           midichlorians:2000
+                                              lightSaber:[VOSLightSaber lightSaberWithBlueLight]
+                                               padawanOf:yoda];
+
+        
+        NSLog(@"%@", anakin);
+        NSLog( @"Luke %@ igual que obiwan", ([luke isEqual:obiWan] ? @"es" : @"no es"));
+        
     }
     return 0;
 }
