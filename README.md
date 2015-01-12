@@ -11,7 +11,7 @@ Jedi hereda de StarWarsCharacter. Tanto StarWarsCharacter como LightSaber hereda
 
 Teneis que usar vuestro prefijo (yo lo pondré sin él).
 
-## Clase LightSaber ##
+Clase LightSaber
 Propiedades: color, de tipo NSColor (mirad esa clase en la documentación). No usaremos UIColor ya que ésta es de UIKit y aun no sabemos hacer Apps para iOS, así que el ejercicio será una App de linea de comandos para OSX.
 
 Inicializadores: un designado que acepta valores RGB (mirad la documentación de NSColor) y crea el NSColor apropiado.
@@ -22,12 +22,12 @@ Cread también los métodos factory de clase correspondientes.
 
 Crea un par de sables laser de colores diferentes e implementa description e isEqual: para comparar sables laser (solo serán iguales si sus colores lo son ¿cómo lo harías?).
 
-## Clase StarWarsCharacter ##
-* Propiedades: name de tipo NSString
-* Inicializadores: designado y métodos factory.
-Implementa _description_ e _isEqual_:. Crea dos personajes (Jabba the Hutt y Han Solo) y compáralos. ¿Cuando serán iguales dos personajes).
+Clase StarWarsCharacter
+Propiedades: name de tipo NSString
+Inicializadores: designado y métodos factory.
+Implementa description e isEqual:. Crea dos personajes (Jabba the Hutt y Han Solo) y compáralos. ¿Cuando serán iguales dos personajes).
 
-## Clase Jedi ##
+Clase Jedi
 Desciende de StarWarsCharacter.
 
 Propiedades
