@@ -15,19 +15,20 @@
 
 // Métodos de clase
 #pragma mark - Class Methods
-+(id) lightSaberWithRed:(CGFloat) red
-                  green:(CGFloat) green
-                   blue:(CGFloat) blue
-                  alpha:(CGFloat) alpha;
-+(id) lightSaberWithBlueLight;
-+(id) lightSaberWithRedLight;
-+(id) lightSaberWithGreenLight;
-+(id) lightSaberWithPurpleLight;
++(instancetype) lightSaberWithRed:(float) red
+                            green:(float) green
+                             blue:(float) blue
+                            alpha:(float) alpha;
++(instancetype) lightSaberWithBlueLight;
++(instancetype) lightSaberWithRedLight;
++(instancetype) lightSaberWithGreenLight;
++(instancetype) lightSaberWithPurpleLight;
 
--(id) initWithRed:(CGFloat) red
-            green:(CGFloat) green
-             blue:(CGFloat) blue
-            alpha:(CGFloat) alpha;
+// designated
+-(id) initWithRed:(float) red
+            green:(float) green
+             blue:(float) blue
+            alpha:(float) alpha;
 
 // 4 inicializadores de conveniencia para crear un sable blue, red, green y purple.
 

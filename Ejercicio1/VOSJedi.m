@@ -11,47 +11,45 @@
 
 @implementation VOSJedi
 
-#pragma mark - Class Methods
-+(id) unsheathe{
-    return [NSString stringWithFormat:@"█||||||(•)█Ξ█████████████████████"];
-}
-
 #pragma mark - Init
--(id) initWithName: (NSString *) aName
-     midichlorians: (int) anMidichlorians
-        lightSaber: (VOSLightSaber *) alightsaber
-         padawanOf: (VOSJedi *) aJedi{
+-(id) initWithName: (NSString *) name
+     midichlorians: (NSUInteger) midichlorians
+        lightSaber: (VOSLightSaber *) lightsaber
+         padawanOf: (VOSJedi *) master{
 
-    if ( self = [super init]) {
-        self.name = aName;
-        _midichlorians = anMidichlorians;
-        _lightSaber = alightsaber;
-        _padawanOf = aJedi;
+    if ( self = [super initWithName:name]) {
+        _midichlorians = midichlorians;
+        _lightSaber = lightsaber;
+        _padawanOf = master;
     }
     
     return self;
 
 }
 
--(id) initWithName: (NSString *) aName{
-    return [self initWithName:aName
+-(id) initWithName: (NSString *) name{
+    return [self initWithName:name
                 midichlorians:100
                    lightSaber:[VOSLightSaber lightSaberWithBlueLight]
                     padawanOf:nil];
 }
 
--(id) initJediMasterWithName: (NSString *) aName{
-    return [self initWithName:aName
+-(id) initWithJediMasterNamed: (NSString *) name{
+    return [self initWithName:name
                 midichlorians:1000
                    lightSaber:[VOSLightSaber lightSaberWithGreenLight]
                     padawanOf:nil];
     
 }
 
+-(NSString *) unsheathe{
+    return [NSString stringWithFormat:@"█||||||(•)█Ξ█████████████████████"];
+}
+
 #pragma mark - Override
 -(NSString *) description{
     
-    return [NSString stringWithFormat: @"< %@ %@ es un Jedi con %d midiclorianos, padawan de %@ y suele utilizar un  %@>", [self class], [self name], [self midichlorians], [self padawanOf], self.lightSaber ];
+    return [NSString stringWithFormat: @"< %@: %@ es un Jedi con (%lu) midiclorianos, padawan de %@ y suele utilizar un  %@>", [self class], [self name], (unsigned long)[self midichlorians], [self padawanOf], self.lightSaber ];
 }
 
 -(BOOL) isEqual:(id) object{
@@ -61,7 +59,7 @@
     }
     else{
         if ([ object isKindOfClass:[self class]]){
-            return [self isEqualToJedi:object];
+            return [[self proxyForComparision] isEqual:[object proxyForComparision]];
         }
         else{
             return NO;
@@ -69,36 +67,8 @@
     }
 }
 
--(BOOL) isEqualToJedi: (VOSJedi *) other{
-//    if ( [self.name isEqualToString:other.name] &&
-//        self.midichlorians == other.midichlorians &&
-//        [self.lightSaber isEqualTo:other.lightSaber] &&
-//        [self.padawanOf isEqualToMaster:other.padawanOf] ){
-//        return YES;
-//    }
-//    else{
-//        return NO;
-//    }
-    
-    return ( ( [self.name isEqualToString:other.name] &&
-                self.midichlorians == other.midichlorians &&
-               [self.lightSaber isEqualTo:other.lightSaber] &&
-               [self.padawanOf isEqualToMaster:other.padawanOf] ) ? : 0 );
-    
-}
-
--(BOOL) isEqualToMaster:(id) object{
-    if ( self == object){
-        return YES;
-    }
-    else{
-        if ([ object isKindOfClass:[self class]]){
-            return [self.padawanOf isEqualToJedi:object];
-        }
-        else{
-            return NO;
-        }
-    }
+-(NSString *) proxyForComparision{
+    return [NSString stringWithFormat:@"%@ %@ %lu %@", [self name], [self padawanOf], [self midichlorians], [self lightSaber]];
 }
 
 @end

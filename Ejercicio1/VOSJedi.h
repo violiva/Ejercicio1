@@ -11,17 +11,17 @@
 
 @interface VOSJedi : VOSStarWarsCharacter
 
-@property int midichlorians;
+@property NSUInteger midichlorians;
 @property VOSLightSaber * lightSaber;
 @property VOSJedi * padawanOf;
 
 
--(id) initWithName: (NSString *) aName
-     midichlorians: (int) anMidichlorians
-        lightSaber: (VOSLightSaber *) alightsaber
-         padawanOf: (VOSJedi *) aJedi;
+-(id) initWithName: (NSString *) name
+     midichlorians: (NSUInteger) midichlorians
+        lightSaber: (VOSLightSaber *) lightsaber
+         padawanOf: (VOSJedi *) master;
 
--(id) initWithName: (NSString *) aName;
--(id) initJediMasterWithName: (NSString *) aName;
+-(id) initWithName: (NSString *) name;
+-(id) initWithJediMasterNamed: (NSString *) name;
 
 @end

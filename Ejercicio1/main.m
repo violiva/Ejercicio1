@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
                                            midichlorians:10000
                                               lightSaber:[VOSLightSaber lightSaberWithRedLight]
                                                padawanOf:obiWan];
-        VOSJedi * yoda = [[VOSJedi alloc] initJediMasterWithName:@"Yoda"];
+        VOSJedi * yoda = [[VOSJedi alloc] initWithJediMasterNamed:@"Yoda"];
         VOSJedi * luke = [[VOSJedi alloc] initWithName:@"Luke Skywalker"
                                            midichlorians:2000
                                               lightSaber:[VOSLightSaber lightSaberWithBlueLight]

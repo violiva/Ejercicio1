@@ -11,11 +11,11 @@
 
 @implementation VOSLightSaber
 
-
-+(id) lightSaberWithRed:(CGFloat) red
-                  green:(CGFloat) green
-                   blue:(CGFloat) blue
-                  alpha:(CGFloat) alpha{
+#pragma mark - Class methods
++(id) lightSaberWithRed:(float) red
+                  green:(float) green
+                   blue:(float) blue
+                  alpha:(float) alpha{
     
     return [[self alloc] initWithRed:red
                                green:green
@@ -48,17 +48,17 @@
     
 }
 
-
--(id) initWithRed:(CGFloat) red
-            green:(CGFloat) green
-             blue:(CGFloat) blue
-            alpha:(CGFloat) alpha{
+#pragma mark - Init
+-(id) initWithRed:(float) red
+            green:(float) green
+             blue:(float) blue
+            alpha:(float) alpha{
     
     if ( self = [super init]) {
-       _colour = [NSColor colorWithCalibratedRed:red
-                                           green:green
-                                            blue:blue
-                                           alpha:alpha];
+       _colour = [NSColor  colorWithRed:red
+                                  green:green
+                                   blue:blue
+                                  alpha:alpha];
     }
     
     return self;
@@ -66,11 +66,16 @@
 
 
 -(id) initWithBlueLight{
-    if ( self = [super init]) {
-        _colour = [NSColor blueColor];
-    }
+    return [self initWithRed:0
+                       green:0
+                        blue:1
+                       alpha:1.0];
     
-    return self;
+//    if ( self = [super init]) {
+//        _colour = [NSColor blueColor];
+//    }
+//    
+//    return self;
     
 }
 
@@ -101,10 +106,10 @@
     
 }
 
-#pragma mark - Mis definiciones
+#pragma mark - Override
 -(NSString *) description{
     
-    return [NSString stringWithFormat: @"Sable de Luz con Componente rojo: %f, verde: %f, azul: %f alpha: %f", self.colour.redComponent, self.colour.greenComponent, self.colour.blueComponent, self.colour.alphaComponent ];
+    return [NSString stringWithFormat: @"%@: Sable de Luz con Componente rojo: %f, verde: %f, azul: %f alpha: %f", self.class, self.colour.redComponent, self.colour.greenComponent, self.colour.blueComponent, self.colour.alphaComponent ];
 }
 
 -(BOOL) isEqual:(id) object{
@@ -114,7 +119,8 @@
     }
     else{
         if ([ object isKindOfClass:[self class]]){
-            return [self isEqualToColor:object];
+//            return [self isEqualToColor:object];
+            return [self.colour isEqual:[object colour]];
         }
         else{
             return NO;
@@ -122,6 +128,7 @@
     }
 }
 
+// Proxy for Comparision
 -(BOOL) isEqualToColor: (VOSLightSaber *) other{
     if ( self.colour.redComponent == other.colour.redComponent &&
          self.colour.greenComponent == other.colour.greenComponent &&

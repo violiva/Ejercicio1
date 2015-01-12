@@ -10,12 +10,14 @@
 
 @implementation VOSStarWarsCharacter
 
-+(id) starWarsCharacterWithName: (NSString *) aName{
+#pragma mark - Class methods
++(instancetype) starWarsCharacterWithName: (NSString *) aName{
 
     return [[self alloc] initWithName:aName];
 
 }
 
+#pragma mark - Init
 -(id) initWithName: (NSString *) aName{
     if ( self = [super init]) {
         _name = aName;
@@ -25,9 +27,21 @@
     
 }
 
-#pragma mark - Mis definiciones
+#pragma mark - Override
 -(NSString *) description{
-    return [NSString stringWithFormat: @"<%@ Mi Personaje es: %@>", [self className], [self name] ];
+    return [NSString stringWithFormat: @"<%@ Mi Personaje es: %@>", [self class], [self name] ];
+}
+
+-(BOOL) isEqual:(id)object{
+    if ( self == object ){
+        return YES;
+    }else{
+        if( [object isKindOfClass:[self class]]){
+            return [self.name isEqual:[object name]];
+        }else{
+            return NO;
+        }
+    }
 }
 
 -(BOOL) isEqualToCharacter: (VOSStarWarsCharacter *) other{

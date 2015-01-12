@@ -15,7 +15,7 @@
 
 // Métodos de clase
 #pragma mark - Class Methods
-+(id) starWarsCharacterWithName: (NSString *) aName;
++(instancetype) starWarsCharacterWithName: (NSString *) aName;
 
 // Métodos de instancia
 // designated
